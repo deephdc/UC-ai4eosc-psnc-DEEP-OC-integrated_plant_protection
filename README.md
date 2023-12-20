@@ -3,7 +3,7 @@
 </div>
 
 # DEEP-OC-ai4eosc_uc2
-[![Build Status](https://jenkins.indigo-datacloud.eu/buildStatus/icon?job=Pipeline-as-code/DEEP-OC-org/UC-ai4eosc-psnc-DEEP-OC-ai4eosc_uc2/master)](https://jenkins.indigo-datacloud.eu/job/Pipeline-as-code/job/DEEP-OC-org/job/UC-ai4eosc-psnc-DEEP-OC-ai4eosc_uc2/job/master)
+[![Build Status](https://jenkins.indigo-datacloud.eu/buildStatus/icon?job=Pipeline-as-code/DEEP-OC-org/UC-ai4eosc-psnc-DEEP-OC-ai4eosc_uc2/test)](https://jenkins.indigo-datacloud.eu/job/Pipeline-as-code/job/DEEP-OC-org/job/UC-ai4eosc-psnc-DEEP-OC-ai4eosc_uc2/job/test)
 
 This is a container that will run the [ai4eosc_uc2](https://github.com/ai4eosc-psnc/ai4eosc_uc2) application leveraging the DEEP as a Service API component ([DEEPaaS API V2](https://github.com/indigo-dc/DEEPaaS)).
 
