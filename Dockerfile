@@ -77,7 +77,7 @@ RUN if [ "$jlab" = true ]; then \
 
 # Install user app
 
-RUN apt-get update && apt-get  -y --no-install-recommends install libgl1 libglib2.0-0 libsm6 libxrender1 libxext6 unzip
+RUN apt-get update && apt-get  -y --no-install-recommends install libgl1 libglib2.0-0 libsm6 libxrender1 libxext6 unzip psmisc
 
 RUN git clone -b $branch https://github.com/ai4eosc-psnc/ai4eosc_uc2 && \
     cd  ai4eosc_uc2 && \
