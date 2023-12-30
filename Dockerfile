@@ -14,7 +14,7 @@
 ARG tag=2.1.2
 
 # Base image, e.g. tensorflow/tensorflow:2.9.1
-FROM pytorch/pytorch:${tag}
+FROM pytorch/pytorch:2.1.2-cuda12.1-cudnn8-runtime
 
 LABEL maintainer='PSNC WODR'
 LABEL version='0.0.1'
@@ -30,10 +30,10 @@ ARG jlab=true
 # - gcc is needed in Pytorch images because deepaas installation might break otherwise (see docs) (it is already installed in tensorflow images)
 RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
     apt-get install -y --no-install-recommends \
-        gcc \
-        git \
-        curl \
-        nano \
+    gcc \
+    git \
+    curl \
+    nano \
     && rm -rf /var/lib/apt/lists/*
 
 # Update python packages
@@ -71,18 +71,24 @@ ENV JUPYTER_CONFIG_DIR /srv/.deep-start/
 # Necessary for the Jupyter Lab terminal
 ENV SHELL /bin/bash
 RUN if [ "$jlab" = true ]; then \
-       # by default has to work (1.2.0 wrongly required nodejs and npm)
-       pip3 install --no-cache-dir jupyterlab ; \
+    # by default has to work (1.2.0 wrongly required nodejs and npm)
+    pip3 install --no-cache-dir jupyterlab ; \
     else echo "[INFO] Skip JupyterLab installation!"; fi
 
 # Install user app
+
+RUN apt-get update && apt-get  -y --no-install-recommends install libgl1 libglib2.0-0 libsm6 libxrender1 libxext6 unzip
+
 RUN git clone -b $branch https://github.com/ai4eosc-psnc/ai4eosc_uc2 && \
     cd  ai4eosc_uc2 && \
     pip3 install --no-cache-dir -e . && \
     cd ..
-
+    
 RUN cd ai4eosc_uc2/models && \
-        tar -xf beet-52.zip beet-54.zip rye-3.zip rye-7.zip
+    unzip beet-52.zip && \
+    unzip beet-54.zip && \
+    unzip rye-3.zip && \
+    unzip rye-7.zip
 
 # Open ports: DEEPaaS (5000), Monitoring (6006), Jupyter (8888)
 EXPOSE 5000 6006 8888
