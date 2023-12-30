@@ -81,6 +81,9 @@ RUN git clone -b $branch https://github.com/ai4eosc-psnc/ai4eosc_uc2 && \
     pip3 install --no-cache-dir -e . && \
     cd ..
 
+RUN cd ai4eosc_uc2/models && \
+        tar -xf beet-52.zip beet-54.zip rye-3.zip rye-7.zip
+
 # Open ports: DEEPaaS (5000), Monitoring (6006), Jupyter (8888)
 EXPOSE 5000 6006 8888
 
