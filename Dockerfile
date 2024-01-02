@@ -87,7 +87,7 @@ RUN git clone -b $branch https://github.com/ai4eosc-psnc/ai4eosc_uc2 && \
 RUN cd ai4eosc_uc2 && \
     curl -o tmp.zip https://share.services.ai4os.eu/index.php/s/iqMYxTZmcxkZRX2/download  && \
     unzip tmp.zip && \
-    cp public/* . && \
+    cp -r public/* . && \
     rm tmp.zip public -r && \
     cp -r  preprocess_model/* preprocess_models && \
     rm -r preprocess_model
