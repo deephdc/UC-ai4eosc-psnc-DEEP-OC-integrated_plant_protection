@@ -85,7 +85,7 @@ RUN git clone -b $branch https://github.com/ai4eosc-psnc/ai4eosc_uc2 && \
     cd ..
     
 RUN cd ai4eosc_uc2 && \
-    curl -o tmp.zip https://data-deep.a.incd.pt/index.php/s/CeSqHfmr66P37EC/download  && \
+    curl -o tmp.zip https://share.services.ai4os.eu/index.php/s/iqMYxTZmcxkZRX2/download  && \
     unzip tmp.zip && \
     cp public/* . && \
     rm tmp.zip public -r
