@@ -84,11 +84,11 @@ RUN git clone -b $branch https://github.com/ai4eosc-psnc/ai4eosc_uc2 && \
     pip3 install --no-cache-dir -e . && \
     cd ..
     
-RUN cd ai4eosc_uc2/models && \
-    unzip beet-52.zip && \
-    unzip beet-54.zip && \
-    unzip rye-3.zip && \
-    unzip rye-7.zip
+RUN cd ai4eosc_uc2 && \
+    curl -o tmp.zip https://data-deep.a.incd.pt/index.php/s/CeSqHfmr66P37EC/download  && \
+    unzip tmp.zip && \
+    cp public/* . && \
+    rm tmp.zip public -r
 
 # Open ports: DEEPaaS (5000), Monitoring (6006), Jupyter (8888)
 EXPOSE 5000 6006 8888
