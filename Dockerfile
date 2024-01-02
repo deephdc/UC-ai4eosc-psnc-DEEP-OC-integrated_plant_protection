@@ -88,7 +88,9 @@ RUN cd ai4eosc_uc2 && \
     curl -o tmp.zip https://share.services.ai4os.eu/index.php/s/iqMYxTZmcxkZRX2/download  && \
     unzip tmp.zip && \
     cp public/* . && \
-    rm tmp.zip public -r
+    rm tmp.zip public -r && \
+    cp -r  preprocess_model/* preprocess_models && \
+    rm -r preprocess_model
 
 # Open ports: DEEPaaS (5000), Monitoring (6006), Jupyter (8888)
 EXPOSE 5000 6006 8888
