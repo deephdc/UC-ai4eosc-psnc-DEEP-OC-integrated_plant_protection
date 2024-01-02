@@ -9,7 +9,13 @@
     "keywords": [
         "docker",
         "api-v2",
-        "pytorch"
+        "pytorch",
+        "deep learning",
+        "pre-trained",
+        "trainable",
+        "imagine classification",
+	    "vo.imagine-ai.eu"
+
     ],
     "license": "MIT",
     "date_creation": "2023-12-20",
