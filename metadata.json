@@ -1,10 +1,16 @@
 {
-    "title": "ai4eosc_uc2",
-    "summary": "Integrated Plant Protection",
+    "title": "Integrated Plant Protection",
+    "summary": "ai4eosc uc2",
     "description": [
-        "ai4eosc_uc2 is an application using the DEEPaaS API.\n",
-        "Write additional information for your users (how to predict, how to retrain,",
-        "dataset description, training description, etc)."
+        "Integrated Plant Protection is an application using the DEEPaaS API.\n",
+        "The module contains 4 trained models based on CNN architecture with reduced network capacity due to the size of datasets.",
+        "The pipeline is implemented in [PyTorch](https://pytorch.org/).\n",
+        "For rye, the first classifier in the normal approach is rye-3 and for beets it is beet-52.",
+        "In the second approach, the impact of using preprocessing before the classifier was checked.",
+        "For this purpose, masks were collected and models were trained with U-Net architecture for segmentation. rye-1 for rye and beet-1 for beet.",
+        "Two more classifiers, namely rye-7 and beet-54, were used to preprocess the corresponding models.",
+        "It was possible to train new models without and with preprocessing.",
+        "The same scheme is then used for prediction, with the difference that preprocessing is done immediately before GPU inference.\n"
     ],
     "keywords": [
         "docker",
@@ -14,19 +20,19 @@
         "pre-trained",
         "trainable",
         "imagine classification",
-	    "vo.imagine-ai.eu"
+	    "vo.ai4eosc.eu"
 
     ],
     "license": "MIT",
     "date_creation": "2023-12-20",
     "sources": {
-		"dockerfile_repo": "https://github.com/ai4eosc-psnc/DEEP-OC-ai4eosc_uc2",
-		"docker_registry_repo": "deephdc/uc-ai4eosc-psnc-deep-oc-ai4eosc_uc2",
-		"code": "https://github.com/ai4eosc-psnc/ai4eosc_uc2"
+		"dockerfile_repo": "https://github.com/ai4eosc-psnc/DEEP-OC-integrated_plant_protection",
+		"docker_registry_repo": "deephdc/uc-ai4eosc-psnc-deep-oc-integrated_plant_protection",
+		"code": "https://github.com/ai4eosc-psnc/integrated_plant_protection"
 	},
     "continuous_integration": {
-        "build_status_badge": "https://jenkins.indigo-datacloud.eu/buildStatus/icon?job=Pipeline-as-code/DEEP-OC-org/UC-ai4eosc-psnc-DEEP-OC-ai4eosc_uc2/master",
-        "build_status_url": "https://jenkins.indigo-datacloud.eu/job/Pipeline-as-code/job/DEEP-OC-org/job/UC-ai4eosc-psnc-DEEP-OC-ai4eosc_uc2/job/master"
+        "build_status_badge": "https://jenkins.indigo-datacloud.eu/buildStatus/icon?job=Pipeline-as-code/DEEP-OC-org/UC-ai4eosc-psnc-DEEP-OC-integrated_plant_protection/master",
+        "build_status_url": "https://jenkins.indigo-datacloud.eu/job/Pipeline-as-code/job/DEEP-OC-org/job/UC-ai4eosc-psnc-DEEP-OC-integrated_plant_protection/job/master"
     },
     "tosca": [
         {

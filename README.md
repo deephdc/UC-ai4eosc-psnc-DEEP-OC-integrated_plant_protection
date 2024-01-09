@@ -2,10 +2,10 @@
 <img src="https://marketplace.deep-hybrid-datacloud.eu/images/logo-deep.png" alt="logo" width="300"/>
 </div>
 
-# DEEP-OC-ai4eosc_uc2
-[![Build Status](https://jenkins.indigo-datacloud.eu/buildStatus/icon?job=Pipeline-as-code/DEEP-OC-org/UC-ai4eosc-psnc-DEEP-OC-ai4eosc_uc2/master)](https://jenkins.indigo-datacloud.eu/job/Pipeline-as-code/job/DEEP-OC-org/job/UC-ai4eosc-psnc-DEEP-OC-ai4eosc_uc2/job/master)
+# DEEP-OC-integrated_plant_protection
+[![Build Status](https://jenkins.indigo-datacloud.eu/buildStatus/icon?job=Pipeline-as-code/DEEP-OC-org/UC-ai4eosc-psnc-DEEP-OC-integrated_plant_protection/master)](https://jenkins.indigo-datacloud.eu/job/Pipeline-as-code/job/DEEP-OC-org/job/UC-ai4eosc-psnc-DEEP-OC-integrated_plant_protection/job/master)
 
-This is a container that will run the [ai4eosc_uc2](https://github.com/ai4eosc-psnc/ai4eosc_uc2) application leveraging the DEEP as a Service API component ([DEEPaaS API V2](https://github.com/indigo-dc/DEEPaaS)).
+This is a container that will run the [integrated_plant_protection](https://github.com/ai4eosc-psnc/integrated_plant_protection) application leveraging the DEEP as a Service API component ([DEEPaaS API V2](https://github.com/indigo-dc/DEEPaaS)).
 
     
 ## Running the container
@@ -15,7 +15,7 @@ This is a container that will run the [ai4eosc_uc2](https://github.com/ai4eosc-p
 To run the Docker container directly from Docker Hub and start using the API simply run the following command:
 
 ```bash
-$ docker run -ti -p 5000:5000 -p 6006:6006 -p 8888:8888 deephdc/uc-ai4eosc-psnc-deep-oc-ai4eosc_uc2
+$ docker run -ti -p 5000:5000 -p 6006:6006 -p 8888:8888 deephdc/uc-ai4eosc-psnc-deep-oc-integrated_plant_protection
 ```
 
 This command will pull the Docker container from the Docker Hub [deephdc](https://hub.docker.com/u/deephdc/) repository and start the default command (`deepaas-run --listen-ip=0.0.0.0`).
@@ -26,10 +26,10 @@ This command will pull the Docker container from the Docker Hub [deephdc](https:
 
 If you want to build the container directly in your machine (because you want to modify the `Dockerfile` for instance) follow the following instructions:
 ```bash
-git clone https://github.com/ai4eosc-psnc/DEEP-OC-ai4eosc_uc2
-cd DEEP-OC-ai4eosc_uc2
-docker build -t deephdc/uc-ai4eosc-psnc-deep-oc-ai4eosc_uc2 .
-docker run -ti -p 5000:5000 -p 6006:6006 -p 8888:8888 deephdc/uc-ai4eosc-psnc-deep-oc-ai4eosc_uc2
+git clone https://github.com/ai4eosc-psnc/DEEP-OC-integrated_plant_protection
+cd DEEP-OC-integrated_plant_protection
+docker build -t deephdc/uc-ai4eosc-psnc-deep-oc-integrated_plant_protection .
+docker run -ti -p 5000:5000 -p 6006:6006 -p 8888:8888 deephdc/uc-ai4eosc-psnc-deep-oc-integrated_plant_protection
 ```
 
 These three steps will download the repository from GitHub and will build the Docker container locally on your machine. You can inspect and modify the `Dockerfile` in order to check what is going on. For instance, you can pass the `--debug=True` flag to the `deepaas-run` command, in order to enable the debug mode.

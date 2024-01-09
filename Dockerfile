@@ -79,17 +79,16 @@ RUN if [ "$jlab" = true ]; then \
 
 RUN apt-get update && apt-get  -y --no-install-recommends install libgl1 libglib2.0-0 libsm6 libxrender1 libxext6 unzip psmisc
 
-RUN git clone -b $branch https://github.com/ai4eosc-psnc/ai4eosc_uc2 && \
-    cd  ai4eosc_uc2 && \
+RUN git clone -b $branch https://github.com/ai4eosc-psnc/integrated_plant_protection && \
+    cd  integrated_plant_protection && \
     pip3 install --no-cache-dir -e . && \
     cd ..
     
-RUN cd ai4eosc_uc2 && \
+RUN cd integrated_plant_protection && \
     curl -o tmp.zip https://share.services.ai4os.eu/index.php/s/iqMYxTZmcxkZRX2/download  && \
     unzip tmp.zip && \
     cp -r public/* . && \
     rm tmp.zip public -r && \
-    cp -r  preprocess_model/* preprocess_models && \
     rm -r preprocess_model
 
 # Open ports: DEEPaaS (5000), Monitoring (6006), Jupyter (8888)

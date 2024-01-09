@@ -8,7 +8,7 @@ pipeline {
     }
 
     environment {
-        dockerhub_repo = "deephdc/uc-ai4eosc-psnc-deep-oc-ai4eosc_uc2"
+        dockerhub_repo = "deephdc/uc-ai4eosc-psnc-deep-oc-integrated_plant_protection"
         base_cpu_tag = "2.1.2"
         base_gpu_tag = "2.1.2-cuda12.1-cudnn8-runtime"
     }
