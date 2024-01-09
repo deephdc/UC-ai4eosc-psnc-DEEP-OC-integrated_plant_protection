@@ -85,11 +85,10 @@ RUN git clone -b $branch https://github.com/ai4eosc-psnc/integrated_plant_protec
     cd ..
     
 RUN cd integrated_plant_protection && \
-    curl -o tmp.zip https://share.services.ai4os.eu/index.php/s/iqMYxTZmcxkZRX2/download  && \
+    curl -o tmp.zip https://share.services.ai4os.eu/index.php/s/9MN2Zekf3sgisWJ/download  && \
     unzip tmp.zip && \
     cp -r public/* . && \
-    rm tmp.zip public -r && \
-    rm -r preprocess_model
+    rm tmp.zip public -r 
 
 # Open ports: DEEPaaS (5000), Monitoring (6006), Jupyter (8888)
 EXPOSE 5000 6006 8888
