@@ -108,19 +108,5 @@ pipeline {
             }
         }
 
-        stage("Render metadata on the marketplace") {
-            when {
-                allOf {
-                    branch 'master'
-                    changeset 'metadata.json'
-                }
-            }
-            steps {
-                script {
-                    def job_result = JenkinsBuildJob("Pipeline-as-code/deephdc.github.io/pelican")
-                    job_result_url = job_result.absoluteUrl
-                }
-            }
-        }
     }
 }
