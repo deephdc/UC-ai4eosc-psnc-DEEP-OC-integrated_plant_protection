@@ -61,25 +61,21 @@ RUN curl -O https://downloads.rclone.org/rclone-current-linux-amd64.deb && \
 
 ENV RCLONE_CONFIG=/srv/.rclone/rclone.conf
 
-# Initialization scripts
+# Install deep-start script
+# * allows to run shorter command "deep-start"
+# * allows to install jupyterlab or code-server (vscode),
+#   if requested during container creation
 RUN git clone https://github.com/deephdc/deep-start /srv/.deep-start && \
-    ln -s /srv/.deep-start/deep-start.sh /usr/local/bin/deep-start && \
-    ln -s /srv/.deep-start/run_jupyter.sh /usr/local/bin/run_jupyter
+    ln -s /srv/.deep-start/deep-start.sh /usr/local/bin/deep-start
 
-# Install JupyterLab
-ENV JUPYTER_CONFIG_DIR /srv/.deep-start/
 # Necessary for the Jupyter Lab terminal
 ENV SHELL /bin/bash
-RUN if [ "$jlab" = true ]; then \
-    # by default has to work (1.2.0 wrongly required nodejs and npm)
-    pip3 install --no-cache-dir jupyterlab ; \
-    else echo "[INFO] Skip JupyterLab installation!"; fi
 
 # Install user app
 
 RUN apt-get update && apt-get  -y --no-install-recommends install libgl1 libglib2.0-0 libsm6 libxrender1 libxext6 unzip psmisc
 
-RUN git clone -b $branch https://github.com/ai4eosc-psnc/integrated_plant_protection && \
+RUN git clone -b $branch --depth 1 https://github.com/ai4eosc-psnc/integrated_plant_protection && \
     cd  integrated_plant_protection && \
     pip3 install --no-cache-dir -e . && \
     cd ..
